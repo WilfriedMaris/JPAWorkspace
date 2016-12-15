@@ -1,0 +1,17 @@
+127.0.0.1 - - [15/Dec/2016:14:27:21 +0100] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:23 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:23 +0100] "GET /fietsacademy/images/logo.jpg HTTP/1.1" 200 402129
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:23 +0100] "GET /fietsacademy/styles/default.css HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:58 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:58 +0100] "GET /fietsacademy/styles/default.css HTTP/1.1" 200 2159
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:58 +0100] "GET /fietsacademy/images/logo.jpg HTTP/1.1" 200 402129
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:27:58 +0100] "GET /fietsacademy/images/favicon.ico HTTP/1.1" 200 1150
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:29:22 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:31:03 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+127.0.0.1 - - [15/Dec/2016:14:32:32 +0100] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:32:32 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+127.0.0.1 - - [15/Dec/2016:14:33:00 +0100] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:33:00 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:34:15 +0100] "GET /fietsacademy/index.htm HTTP/1.1" 200 1403
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:34:22 +0100] "GET /fietsacademy/docenten/zoeken.htm HTTP/1.1" 404 1058
+0:0:0:0:0:0:0:1 - - [15/Dec/2016:14:34:22 +0100] "GET /favicon.ico HTTP/1.1" 404 1016
