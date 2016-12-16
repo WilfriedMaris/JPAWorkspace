@@ -1,0 +1,11 @@
+#logo {
+	width: 100%;
+}
+
+nav, ul, li, a {
+    width: 100%;
+    text-align: center;
+    list-style: none;
+    display: inline;
+}
+

@@ -1,0 +1,11 @@
+<%@tag description = 'menu van pagina' pageEncoding='UTF-8'%>
+<%@taglib prefix = 'c' uri = 'http://java.sun.com/jsp/jstl/core' %>
+	<nav>
+		<a href = "/artikels/zoekenopnummer.htm">Artikel zoeken op nummer</a>
+		<a href = "/artikels/toevoegen.htm">Artikel toevoegen</a>
+		<a href = "/artikels/zoekenopnaam.htm">Artikel zoeken op naam</a>
+		<a href = "/artikels/prijsverhoging.htm">Prijsverhoging</a>
+		<a href = "/artikels/kortingen.htm">Artikelkortingen</a>
+		<a href = "/artikels/perartikelgroep">Artikels per artikelgroep</a>
+	</nav>
+ 

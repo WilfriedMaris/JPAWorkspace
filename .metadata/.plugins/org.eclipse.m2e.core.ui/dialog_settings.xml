@@ -19,6 +19,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="allesVoorDeKeuken"/>
 			<item value="fietsacademy"/>
 		</list>
 		<list key="version">

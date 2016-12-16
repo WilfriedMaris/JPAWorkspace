@@ -126,6 +126,8 @@
 
       <Context docBase="C:\Workspaces\JPAWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Workspaces\JPAWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\fietsacademy" path="/fietsacademy" reloadable="true" source="org.eclipse.jst.jee.server:fietsacademy">
 	<Resource closeMethod="close" driverClassName="com.mysql.jdbc.Driver" name="jdbc/fietsacademy" password="cursist" type="javax.sql.DataSource" url="jdbc:mysql://localhost/fietsacademy?useSSL=false" username="cursist"/>
+</Context><Context docBase="C:\Workspaces\JPAWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\allesVoorDeKeuken" path="/allesVoorDeKeuken" reloadable="true" source="org.eclipse.jst.jee.server:allesVoorDeKeuken">
+	<Resource closeMethod="close" driverClassName="com.mysql.jdbc.Driver" name="jdbc/allesVoorDeKeuken" password="cursist" type="javax.sql.DataSource" url="jdbc:mysql://localhost/allesvoordekeuken?useSSL=false" username="cursist"/>
 </Context></Host>
     </Engine>
   </Service>

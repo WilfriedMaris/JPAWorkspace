@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebFilter;
 
 @WebFilter("*.htm")
 public class JPAFilter implements Filter {
-	private static final EntityManagerFactory entityManagerFactory
-	= Persistence.createEntityManagerFactory("fietsacademy");
+	private static final EntityManagerFactory entityManagerFactory = 
+			Persistence.createEntityManagerFactory("fietsacademy");
 	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
