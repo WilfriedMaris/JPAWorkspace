@@ -1,0 +1,9 @@
+package be.vdab.repositories;
+
+public class ArtikelRepository {
+	
+	public Optional<Artikel> read(){
+		
+	}
+
+}
