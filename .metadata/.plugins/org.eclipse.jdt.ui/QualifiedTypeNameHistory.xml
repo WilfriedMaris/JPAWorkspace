@@ -12,9 +12,15 @@
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="org.hibernate.sql.ordering.antlr.GeneratedOrderByFragmentRendererTokenTypes"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
-<fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="be.vdab.entities.Artikel"/>
+<fullyQualifiedTypeName name="be.vdab.repositories.ArtikelRepository"/>
+<fullyQualifiedTypeName name="be.vdab.repositories.DocentRepository"/>
+<fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="be.vdab.filters.JPAFilter"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
-<fullyQualifiedTypeName name="be.vdab.repositories.ArtikelRepository"/>
+<fullyQualifiedTypeName name="be.vdab.services.DocentService"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="be.vdab.entities.Docent"/>
+<fullyQualifiedTypeName name="java.math.BigDecimal"/>
+<fullyQualifiedTypeName name="be.vdab.enums.Geslacht"/>
 </qualifiedTypeNameHistroy>
