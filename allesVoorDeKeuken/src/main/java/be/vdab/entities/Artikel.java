@@ -20,6 +20,26 @@ public class Artikel implements Serializable{
 	private BigDecimal aankoopprijs;
 	private BigDecimal verkoopprijs;
 	
+	protected Artikel() {}
+	
+	public Artikel(String naam, BigDecimal aankoopprijs, BigDecimal verkooppprijs){
+		setNaam(naam);
+		setAankoopprijs(aankoopprijs);
+		setVerkoopprijs(verkooppprijs);
+	}
+	
+	public static boolean isNaamValid(String naam){
+		return !naam.isEmpty() && naam != null;
+	}
+	
+	public static boolean isAankoopprijsValid(BigDecimal aankoopprijs){
+		return aankoopprijs != null && aankoopprijs.compareTo(BigDecimal.valueOf(0.01)) >= 0;
+	}
+	
+	public static boolean isVerkoopprijsValid(BigDecimal verkoopprijs, BigDecimal aankoopprijs){
+		return verkoopprijs != null && verkoopprijs.compareTo(aankoopprijs) >= 0;
+	}
+	
 	public Long getId() {
 		return id;
 	}

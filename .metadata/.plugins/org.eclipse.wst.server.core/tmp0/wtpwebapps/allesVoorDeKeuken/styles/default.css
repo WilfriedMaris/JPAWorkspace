@@ -11,3 +11,7 @@ li{
 nav{
 	text-align: center;
 }
+
+label, input{
+	display: block;
+}

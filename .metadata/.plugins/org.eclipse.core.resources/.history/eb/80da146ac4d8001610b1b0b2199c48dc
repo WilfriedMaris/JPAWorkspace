@@ -1,0 +1,15 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" session='false' %>
+<%@taglib uri="http://vdab.be/tags" prefix ='v' %>
+<!doctype html>
+<html lang='nl'>
+<head>
+<v:head title="Opslag"/>
+</head>
+<body>
+	<v:menu/>
+	<h1>Opslag</h1>
+	<form method="post" id='opslagform>
+	
+	</form>
+</body>
+</html>

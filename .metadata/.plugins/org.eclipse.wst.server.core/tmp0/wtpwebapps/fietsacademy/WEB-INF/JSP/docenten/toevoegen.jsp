@@ -31,7 +31,7 @@
 				${param.geslacht=='VROUW' ? 'checked' : '' }>Vrouw
 			</label>
 		</div>
-		<label>Rijksregisternummer:<span>${fouten.rijksregisternr }
+		<label>Rijksregisternummer:<span>${fouten.rijksregisternr}
 		</span> <input name='rijksregisternr' value='${param.rijksregisternr}'
 			required type="number" min='10000000000' max='99999999999'>
 		</label> 

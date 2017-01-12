@@ -1,0 +1,21 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" session="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://vdab.be/tags" prefix="vdab" %>
+<!doctype html>
+<html lang='nl'>
+<vdab:head titel="Artikels toevoegen"/>
+<vdab:menu/>
+<body>
+	<h1>Toevoegen:</h1>
+	<form>
+		<label>Artikelnaam:<span>${fouten.naam}</span>
+			<input name="naam" type="text" required autofocus value='${artikel.naam}'>
+		Aankoopprijs:<span>${fouten.aankoopprijs}</span>
+			<input name="aankoopprijs" type="text" required value='${artikel.aankoopprijs}'>
+		Verkoopprijs:<span>${fouten.verkoopprijs}</span>
+			<input name="verkoopprijs" type="text" required value='${artikel.verkooppprijs}'>
+			<input type="submit" value="Toevoegen">
+		</label>
+	</form>
+</body>
+</html>

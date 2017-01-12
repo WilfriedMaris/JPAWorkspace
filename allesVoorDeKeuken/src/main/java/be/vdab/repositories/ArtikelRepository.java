@@ -1,20 +1,17 @@
 package be.vdab.repositories;
 
 import java.util.Optional;
-
 import javax.persistence.EntityManager;
-
 import be.vdab.entities.Artikel;
-import be.vdab.filters.JPAFilter;
 
 public class ArtikelRepository {
 
-	public Optional<Artikel> read(Long id) {
-		EntityManager entityManager = JPAFilter.getEntitymanager();
-		try {
+	public Optional<Artikel> read(Long id, EntityManager entityManager) {
 			return Optional.ofNullable(entityManager.find(Artikel.class, id));
-		} finally {
-			entityManager.close();
-		}
 	}
+	
+	public void create(Artikel artikel, EntityManager entitymanager){
+		entitymanager.persist(artikel);
+	}
+	
 }
