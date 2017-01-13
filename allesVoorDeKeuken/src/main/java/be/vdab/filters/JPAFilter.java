@@ -15,27 +15,35 @@ import javax.servlet.annotation.WebFilter;
 
 @WebFilter("*.htm")
 public class JPAFilter implements Filter {
-	private static final EntityManagerFactory entityManagerFactory =
-			Persistence.createEntityManagerFactory("allesVoorDeKeuken");
-	
+	private static final EntityManagerFactory entityManagerFactory = Persistence
+			.createEntityManagerFactory("allesVoorDeKeuken");
+	private static final ThreadLocal<EntityManager> entityManager = new ThreadLocal<>();
+
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		//geen code nodig hier
+		// geen code nodig hier
 	}
 
 	@Override
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) 
-			throws ServletException, IOException{
-		request.setCharacterEncoding("UTF-8");
-		chain.doFilter(request, response);
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws ServletException, IOException {
+		entityManager.set(entityManagerFactory.createEntityManager());
+		try {
+			request.setCharacterEncoding("UTF-8");
+			chain.doFilter(request, response);
+		} finally {
+			entityManager.get().close();
+			entityManager.remove();
+		}
+
 	}
-	
+
 	@Override
-	public void destroy(){
+	public void destroy() {
 		entityManagerFactory.close();
 	}
-	
+
 	public static EntityManager getEntitymanager() {
-		return entityManagerFactory.createEntityManager();
+		return entityManager.get();
 	}
 }

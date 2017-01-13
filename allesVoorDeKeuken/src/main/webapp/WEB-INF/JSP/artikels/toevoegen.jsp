@@ -12,10 +12,10 @@
 			<input name="naam" required autofocus value='${artikel.naam}'>
 		</label>
 		<label>Aankoopprijs:<span>${fouten.aankoopprijs}</span>
-			<input name="aankoopprijs" type="number" required value='${artikel.aankoopprijs}'>
+			<input name="aankoopprijs" type="number" step="0.01" required value='${artikel.aankoopprijs}'>
 		</label>
 		<label>Verkoopprijs:<span>${fouten.verkoopprijs}</span>
-			<input name="verkoopprijs" type="number" required value='${artikel.verkooppprijs}'>
+			<input name="verkoopprijs" type="number" step="0.01" required value='${artikel.verkooppprijs}'>
 		</label>
 			<input type="submit" value="Toevoegen">
 	</form>

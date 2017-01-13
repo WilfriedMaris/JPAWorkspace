@@ -1,0 +1,38 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" session="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="vdab" uri="http://vdab.be/tags"%>
+<!doctype html>
+<html lang="nl">
+<head>
+<vdab:head title="Docenten van tot wedde" />
+<style>
+td:first-child, td:last-child {
+	text-align: right;
+}
+</style>
+</head>
+<body>
+	<vdab:menu />
+	<h1>Docenten van tot wedde</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nummer</th>
+				<th>Naam</th>
+				<th>wedde</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items='${docenten}' var='docent'>
+				<tr>
+					<td>${docent.id}</td>
+					<td>${docent.naam}</td>
+					<td><fmt:formatNumber value='${docent.wedde}'
+							minFractionDigits="2" maxFractionDigits="2" /></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</body>
+</html>
