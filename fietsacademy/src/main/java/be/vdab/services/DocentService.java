@@ -6,10 +6,15 @@ import java.util.Optional;
 
 import be.vdab.entities.Docent;
 import be.vdab.repositories.DocentRepository;
+import be.vdab.valueobjects.AantalDocentenPerWedde;
 import be.vdab.valueobjects.VoornaamEnId;
 
 public class DocentService extends AbstractService {
 	private final DocentRepository docentRepository = new DocentRepository();
+	
+	public List<AantalDocentenPerWedde> findAantalDocentenPerWedde(){
+		return docentRepository.findAantalDocentenPerWedde();
+	}
 	
 	public BigDecimal findMaxWedde(){
 		return docentRepository.findMaxWedde();
