@@ -1,0 +1,14 @@
+<%@ page contentType="text/html" pageEncoding="UTF-8" session="false"%>
+<%@ taglib prefix="vdab"  uri="http://vdab.be/tags"%>
+<%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<
+</head>
+<body>
+<f:view>
+
+</f:view>
+</body>
+</html>

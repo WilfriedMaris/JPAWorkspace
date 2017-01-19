@@ -1,6 +1,8 @@
 package be.vdab.services;
 
+import java.util.List;
 import java.util.Optional;
+
 import be.vdab.entities.Artikel;
 import be.vdab.repositories.ArtikelRepository;
 
@@ -20,5 +22,9 @@ public class ArtikelService extends AbstractService {
 
 	public Optional<Artikel> read(long id) {
 			return artikelRepository.read(id);
+	}
+	
+	public List<Artikel> findByNameContains(String woord){
+		return artikelRepository.findByNameContains(woord);
 	}
 }
