@@ -1,0 +1,12 @@
+package be.vdab.entities;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue ("F")
+public class NonFoodArtikel extends Artikel{
+	private static final long serialVersionUID = 1L;
+	 private int houdbaarheid;
+}
+	

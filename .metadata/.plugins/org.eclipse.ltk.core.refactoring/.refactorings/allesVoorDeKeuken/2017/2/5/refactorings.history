@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;FoodArtikel.java&apos; to &apos;allesVoorDeKeuken/src/main/java/be.vdab.entities&apos;&#x0D;&#x0A;- Original project: &apos;allesVoorDeKeuken&apos;&#x0D;&#x0A;- Destination element: &apos;allesVoorDeKeuken/src/main/java/be.vdab.entities&apos;&#x0D;&#x0A;- Original element: &apos;be.vdab.entities.FoodArtikel.java&apos;" description="Copy compilation unit" destination="/src\/main\/java&lt;be.vdab.entities" element1="/src\/main\/java&lt;be.vdab.entities{FoodArtikel.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1486054284410" units="1" version="1.0"/>
+</session>

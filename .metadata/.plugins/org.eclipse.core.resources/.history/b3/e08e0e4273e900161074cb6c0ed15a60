@@ -1,0 +1,27 @@
+package be.vdab.entities;
+
+import java.math.BigDecimal;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue ("F")
+public class FoodArtikel extends Artikel{
+	private static final long serialVersionUID = 1L;
+	 private int houdbaarheid;
+	 
+	protected FoodArtikel(){}
+
+	public FoodArtikel(String naam, BigDecimal aankoopprijs, BigDecimal verkooppprijs, int houdbaarheid) {
+		super(naam, aankoopprijs, verkooppprijs);
+		this.houdbaarheid = houdbaarheid;
+	}
+	
+	public boolean isHoudbaarheidValid(int houdbaarheid){
+		return houdbaarheid > 0;
+	}
+	 
+	 
+}
+	

@@ -1,0 +1,6 @@
+package be.vdab.services;
+
+public class CampusService extends AbstractService{
+	private final CampusRepository campusRepository = new CampusRepository();
+
+}

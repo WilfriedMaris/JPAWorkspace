@@ -40,7 +40,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   		<scope>provided</scope>
   	</dependency>
   	<dependency> <!-- JSTL -->
-  		<groupId>jstl</groupId>
+  		<groupId>javax.servlet</groupId>
   		<artifactId>jstl</artifactId>
   		<version>1.2</version>
   	</dependency>

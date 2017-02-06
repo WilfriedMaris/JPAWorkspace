@@ -12,6 +12,15 @@ nav{
 	text-align: center;
 }
 
-label, input{
+label{
 	display: block;
+	margin-bottom: 1em;
+}
+
+input{
+	display: block;
+}
+
+#food, #nonfood{
+	display: inline;
 }

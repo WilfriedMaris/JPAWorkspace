@@ -1,0 +1,38 @@
+<%@page contentType="text/html" pageEncoding="UTF-8" session="false"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://vdab.be/tags" prefix="vdab" %>
+<!doctype html>
+<html lang='nl'>
+<vdab:head titel="Artikels toevoegen"/>
+<vdab:menu/>
+<body>
+	<h1>Toevoegen:</h1>
+	<form method="post">
+		<label>Artikelnaam:<span>${fouten.naam}</span>
+			<input name="naam" required autofocus value='${artikel.naam}'>
+		</label>
+		<label>Aankoopprijs:<span>${fouten.aankoopprijs}</span>
+			<input name="aankoopprijs" type="number" step="0.01" required value='${artikel.aankoopprijs}'>
+		</label>
+		<label>Verkoopprijs:<span>${fouten.verkoopprijs}</span>
+			<input name="verkoopprijs" type="number" step="0.01" required value='${artikel.verkooppprijs}'>
+		</label>
+		<label>
+			<input id="radio" type="radio" name="soort" value="F">Food
+			Houdbaarheid:
+			<input type="text" name="houdbaarheid">
+		</label>
+		<label>
+			<input id="radio" type="radio" name="soort" value="NF">Non-Food
+			Garantie:
+			<input type="text" name="garantie">
+		</label>
+			<input type="submit" value="Toevoegen">
+	</form>
+	<script>
+		document.getElementById('toevoegform').onsubmit= function(){
+			document.getElementById('toevoegform').disabled=true;
+		};
+	</script>
+</body>
+</html>

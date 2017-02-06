@@ -1,0 +1,13 @@
+package be.vdab.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="campussen")
+public class Campus implements Serializable{
+	
+
+}

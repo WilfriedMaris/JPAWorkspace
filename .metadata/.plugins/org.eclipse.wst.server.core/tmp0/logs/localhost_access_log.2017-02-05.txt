@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:32 +0100] "GET /fietsacademy/docenten/zoeken.htm?id=1 HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:33 +0100] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:33 +0100] "GET /favicon.ico HTTP/1.1" 404 1016
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:33 +0100] "GET /fietsacademy/docenten/zoeken.htm?id=1 HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:40 +0100] "GET /fietsacademy/ HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:51:42 +0100] "GET /fietsacademy/ HTTP/1.1" 404 992
+127.0.0.1 - - [05/Feb/2017:00:52:07 +0100] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:07 +0100] "GET /fietsacademy/WEB-INF/JSP/campussen/ingemeente.jsp HTTP/1.1" 404 992
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:33 +0100] "GET /fietsacademy/campussen/ingemeente.htm HTTP/1.1" 200 1492
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:33 +0100] "GET /fietsacademy/styles/default.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:41 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=g HTTP/1.1" 200 1501
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:44 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=genk HTTP/1.1" 200 1693
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:55 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=aalst HTTP/1.1" 200 1513
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:52:59 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=brugge HTTP/1.1" 200 1516
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:53:04 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=hasselt HTTP/1.1" 200 1519
+0:0:0:0:0:0:0:1 - - [05/Feb/2017:00:53:05 +0100] "GET /fietsacademy/campussen/ingemeente.htm?gemeente=hasselt HTTP/1.1" 200 1519

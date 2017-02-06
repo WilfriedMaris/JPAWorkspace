@@ -1,0 +1,17 @@
+#logo {
+	width: 100%;
+}
+
+li{
+    width: 100%;
+    list-style: none;
+    display: inline;
+}
+
+nav{
+	text-align: center;
+}
+
+label, input{
+	display: block;
+}
