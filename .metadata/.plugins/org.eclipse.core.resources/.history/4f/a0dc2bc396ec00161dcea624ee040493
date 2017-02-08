@@ -1,0 +1,6 @@
+package be.vdab.valueobjects;
+
+@Embeddable
+public class Korting {
+
+}

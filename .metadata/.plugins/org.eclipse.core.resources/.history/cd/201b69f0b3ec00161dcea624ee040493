@@ -1,0 +1,29 @@
+package be.vdab.valueobjects;
+
+import java.io.Serializable;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class Korting implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private int vanafAantal;
+	private int kortingspercentage;
+	
+	public Korting(int vanafAantal, int kortingspercentage){
+		this.kortingspercentage = kortingspercentage;
+		this.vanafAantal = vanafAantal;
+	}
+	
+	protected Korting(){}
+
+	public int getVanafAantal() {
+		return vanafAantal;
+	}
+
+	public int getKortingspercentage() {
+		return kortingspercentage;
+	}
+	
+
+}

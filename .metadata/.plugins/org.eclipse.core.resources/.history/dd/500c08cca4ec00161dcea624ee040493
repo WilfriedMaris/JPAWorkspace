@@ -1,0 +1,32 @@
+#logo {
+	width: 100%;
+}
+
+li{
+    width: 100%;
+    list-style: none;
+    display: inline;
+}
+
+li #artikel{
+    width: 100%;
+    list-style: none;
+    display: inline;
+}
+
+nav{
+	text-align: center;
+}
+
+label{
+	display: block;
+	margin-bottom: 1em;
+}
+
+input{
+	display: block;
+}
+
+#food, #nonfood{
+	display: inline;
+}

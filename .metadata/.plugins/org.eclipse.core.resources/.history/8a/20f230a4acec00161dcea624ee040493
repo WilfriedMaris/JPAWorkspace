@@ -1,0 +1,43 @@
+package be.vdab.valueobjects;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
+
+import javax.persistence.Embeddable;
+
+@Embeddable
+public class Korting implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private int vanafAantal;
+	private BigDecimal kortingspercentage;
+	
+	public Korting(int vanafAantal, BigDecimal kortingspercentage){
+		setVanafAantal(vanafAantal);
+		setKortingspercentage(kortingspercentage);
+	}
+	
+	protected Korting(){} // Nodig voor JPA
+
+	public int getVanafAantal() {
+		return vanafAantal;
+	}
+
+	public BigDecimal getKortingspercentage() {
+		return kortingspercentage;
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if(! (obj instanceof Korting)){
+			return false;
+		}
+		Korting korting = (Korting) obj;
+		return vanafAantal == korting.vanafAantal; 
+	}
+	
+	@Override
+	public int hashCode(){
+		return vanafAantal;
+	}
+	
+}

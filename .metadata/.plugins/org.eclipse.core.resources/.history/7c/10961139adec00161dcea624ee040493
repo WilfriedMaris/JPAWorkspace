@@ -1,0 +1,32 @@
+package be.vdab.servlets.artikels;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Set;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import be.vdab.entities.Artikel;
+import be.vdab.repositories.ArtikelRepository;
+import be.vdab.services.ArtikelService;
+import be.vdab.valueobjects.Korting;
+
+@WebServlet("/artikels/kortingen.htm")
+public class KortingServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static final String VIEW = "/WEB-INF/JSP/artikels/korting.jsp";
+	private final ArtikelService artikelService = new ArtikelService();
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("artikels", artikelService.findByNameContains(""));
+		request.getRequestDispatcher(VIEW).forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+}
