@@ -39,6 +39,9 @@ public class Docent implements Serializable {
 		joinColumns = @JoinColumn(name="docentid"))
 	@Column(name="Bijnaam")
 	private Set<String> bijnamen;
+//	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+//	@JoinColumn(name = "campusid")
+//	private Campus campus;
 	
 	public Docent(String voornaam, String familienaam, BigDecimal wedde, Geslacht geslacht, long rijksRegisterNr){
 		setVoornaam(voornaam);
@@ -143,6 +146,29 @@ public class Docent implements Serializable {
 	public void opslag(BigDecimal percentage){
 		BigDecimal factor = BigDecimal.ONE.add(percentage.divide(BigDecimal.valueOf(100)));
 		wedde = wedde.multiply(factor).setScale(2, RoundingMode.HALF_UP);
+	}
+
+//	public Campus getCampus() {
+//		return campus;
+//	}
+//
+//	public void setCampus(Campus campus) {
+//		this.campus = campus;
+//	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if( ! (obj instanceof Docent)){
+			return false;
+		}else{
+			Docent docent = (Docent) obj;
+			return rijksRegisterNr == docent.rijksRegisterNr; 
+		}
+	}
+	
+	@Override
+	public int hashCode(){
+		return Long.valueOf(rijksRegisterNr).hashCode();
 	}
 	
 }

@@ -16,7 +16,9 @@ public class ArtikelRepository extends AbstractRepository{
 	}
 	
 	public List<Artikel> findByNameContains(String woord){
-		return getEntityManager().createNamedQuery("Artikel.findByNameContains", Artikel.class).setParameter("zoals", '%' + woord + '%').getResultList();
+		return getEntityManager()
+				.createNamedQuery("Artikel.findByNameContains", Artikel.class)
+				.setParameter("zoals", '%' + woord + '%').getResultList();
 	}
 	
 }
