@@ -1,0 +1,12 @@
+package be.vdab.entities;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="verantwoordelijkheden")
+public class Verantwoordelijkheid implements Serializable{
+	
+}

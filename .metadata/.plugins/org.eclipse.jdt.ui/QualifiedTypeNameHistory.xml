@@ -33,8 +33,6 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="be.vdab.entities.FoodArtikel"/>
 <fullyQualifiedTypeName name="be.vdab.entities.NonFoodArtikel"/>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.Table"/>
 <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="be.vdab.repositories.AbstractRepository"/>
 <fullyQualifiedTypeName name="be.vdab.repositories.CampusRepository"/>
@@ -43,17 +41,22 @@
 <fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="be.vdab.entities.Artikel"/>
-<fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="be.vdab.services.ArtikelService"/>
 <fullyQualifiedTypeName name="javax.persistence.Embeddable"/>
 <fullyQualifiedTypeName name="javax.persistence.Embedded"/>
 <fullyQualifiedTypeName name="javax.persistence.ElementCollection"/>
 <fullyQualifiedTypeName name="javax.persistence.CollectionTable"/>
 <fullyQualifiedTypeName name="be.vdab.valueobjects.Korting"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.persistence.OrderBy"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="be.vdab.services.CampusService"/>
 <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+<fullyQualifiedTypeName name="javax.persistence.JoinTable"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="be.vdab.entities.Verantwoordelijkheid"/>
 </qualifiedTypeNameHistroy>

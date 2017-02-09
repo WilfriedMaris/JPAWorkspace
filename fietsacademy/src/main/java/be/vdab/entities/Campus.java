@@ -35,21 +35,27 @@ public class Campus implements Serializable{
 		joinColumns = @JoinColumn(name="campusid"))
 	@OrderBy("fax")
 	private Set<TelefoonNr> telefoonNrs;
-	@OneToMany
-	@JoinColumn(name = "campusid")
+	@OneToMany(mappedBy = "campus")
+	//@JoinColumn(name = "campusid")
 	@OrderBy("voornaam, familienaam") 
 	private Set<Docent> docenten;
 	
-	private Set<Docent> getDocenten(){
+	public Set<Docent> getDocenten(){
 		return Collections.unmodifiableSet(docenten);
 	}
 	
 	public void add(Docent docent){
 		docenten.add(docent);
+		if(docent.getCampus() != this) { //als de andere kant nog niet is bijgewerkt
+			docent.setCampus(this); 	 //werk je de andere kant bij.
+		}
 	}
 	
 	public void remove(Docent docent){
 		docenten.remove(docent);
+		if(docent.getCampus() == this){ //als de andere kant nog niet is bijgewerkt 
+			docent.setCampus(null); 	//werk je de andere kant bij.
+		}
 	}
 	
 	public Campus(String naam, Adres adres){
