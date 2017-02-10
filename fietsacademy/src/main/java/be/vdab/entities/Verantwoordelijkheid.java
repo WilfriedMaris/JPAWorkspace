@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
@@ -22,11 +23,12 @@ public class Verantwoordelijkheid implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; 
 	private String naam;
-	@ManyToMany
-	@JoinTable(
-			name="docentenverantwoordelijkheden",
-			joinColumns = @JoinColumn(name="verantwoordelijkheidid"),
-			inverseJoinColumns = @JoinColumn(name="docentid"))
+	@ManyToMany(mappedBy="verantwoordelijkheden")
+//	@ManyToMany
+//	@JoinTable(
+//			name="docentenverantwoordelijkheden",
+//			joinColumns = @JoinColumn(name="verantwoordelijkheidid"),
+//			inverseJoinColumns = @JoinColumn(name="docentid"))
 	private Set<Docent> docenten = new LinkedHashSet<>();
 	
 	public void add(Docent docent){

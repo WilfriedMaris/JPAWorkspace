@@ -19,16 +19,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
+import javax.persistence.NamedEntityGraphs;
+import javax.persistence.NamedSubgraph;
 import javax.persistence.Table;
 
 import be.vdab.enums.Geslacht;
 
 @Entity
 @Table(name = "docenten")
+@NamedEntityGraph(name=Docent.MET_CAMPUS, 
+	attributeNodes= @NamedAttributeNode("campus"))
+
 public class Docent implements Serializable {
 	private static final long serialVersionUID = 1L;
+	public static final String MET_CAMPUS = "Docent.metCampus";
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -46,8 +55,14 @@ public class Docent implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "campusid")
 	private Campus campus;
-	@ManyToMany(mappedBy = "docenten")
+	@ManyToMany
+	@JoinTable( 
+	name="docentenverantwoordelijkheden",
+	joinColumns = @JoinColumn(name="docentId"),
+	inverseJoinColumns = @JoinColumn(name="verantwoordelijkheidId"))
+//	@ManyToMany(mappedBy="docenten")
 	private Set<Verantwoordelijkheid> verantwoordelijkheden = new LinkedHashSet<>();
+	
 	
 	public void add(Verantwoordelijkheid verantwoordelijkheid){
 		verantwoordelijkheden.add(verantwoordelijkheid);
@@ -74,6 +89,7 @@ public class Docent implements Serializable {
 		setGeslacht(geslacht);
 		setRijksRegisterNr(rijksRegisterNr);
 		bijnamen = new HashSet<>();
+		verantwoordelijkheden = new LinkedHashSet<>();
 	}
 	
 	protected Docent(){}//default constructor (vereiste voor JPA)

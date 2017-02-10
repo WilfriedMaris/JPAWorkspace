@@ -1,0 +1,17 @@
+package be.vdab.entities;
+// enkele imports
+@Entity
+@Table(name = "managers")
+public class Manager implements Serializable {
+private static final long serialVersionUID = 1L;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private long id;
+private String voornaam;
+private String familienaam;
+@OneToOne( 
+fetch = FetchType.LAZY, 
+mappedBy = "manager") 
+private Campus campus;
+// Je maakt getters voor id, voornaam, familienaam en campus
+}
