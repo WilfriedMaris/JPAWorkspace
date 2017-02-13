@@ -27,4 +27,8 @@ public class ArtikelService extends AbstractService {
 	public List<Artikel> findByNameContains(String woord){
 		return artikelRepository.findByNameContains(woord);
 	}
+	
+	public List<Artikel> findAll(){
+		return artikelRepository.findAll();
+	}
 }

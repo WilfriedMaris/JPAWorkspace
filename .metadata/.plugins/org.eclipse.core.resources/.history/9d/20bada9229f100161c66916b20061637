@@ -1,0 +1,8 @@
+package be.vdab.services;
+
+import be.vdab.repositories.ArtikelGroepRepository;
+
+public class ArtikelGroepService extends AbstractService {
+	private final ArtikelGroepRepository artikelGroepRepository = new ArtikelGroepRepository();
+
+}

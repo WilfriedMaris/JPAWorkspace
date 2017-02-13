@@ -1,0 +1,16 @@
+package be.vdab.services;
+
+import java.util.List;
+
+import be.vdab.entities.ArtikelGroep;
+import be.vdab.repositories.ArtikelGroepRepository;
+
+public class ArtikelGroepService extends AbstractService {
+	private final ArtikelGroepRepository artikelGroepRepository = new ArtikelGroepRepository();
+
+	public List<ArtikelGroep> findAll(){
+		System.out.println(artikelGroepRepository.findAll().get(0).getNaam());
+		System.out.println(artikelGroepRepository.findAll().get(0).getId());
+		return artikelGroepRepository.findAll();
+	}
+}

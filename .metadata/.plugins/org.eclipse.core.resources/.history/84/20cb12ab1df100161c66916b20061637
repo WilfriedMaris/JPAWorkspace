@@ -1,0 +1,8 @@
+package be.vdab.entities;
+
+import javax.persistence.Entity;
+
+@Entity
+public class ArtikelGroep {
+
+}

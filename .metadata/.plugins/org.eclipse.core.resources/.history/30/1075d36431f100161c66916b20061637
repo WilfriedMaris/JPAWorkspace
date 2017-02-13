@@ -1,0 +1,18 @@
+package be.vdab.repositories;
+
+import java.util.List;
+
+import be.vdab.entities.ArtikelGroep;
+
+public class ArtikelGroepRepository extends AbstractRepository{
+	
+	public List<ArtikelGroep> findAll(){
+		return getEntityManager().createNamedQuery("ArtikelGroep.findAll",ArtikelGroep.class)
+				.getResultList();
+	}
+	
+	public ArtikelGroep findGroep(String id){
+		return getEntityManager().createNamedQuery("ArtikelGroep.findById")
+	}
+
+}

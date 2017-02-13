@@ -2,17 +2,29 @@ package be.vdab.services;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import be.vdab.entities.Campus;
 import be.vdab.entities.Docent;
 import be.vdab.exceptions.DocentBestaatAlException;
+import be.vdab.repositories.CampusRepository;
 import be.vdab.repositories.DocentRepository;
 import be.vdab.valueobjects.AantalDocentenPerWedde;
 import be.vdab.valueobjects.VoornaamEnId;
 
 public class DocentService extends AbstractService {
 	private final DocentRepository docentRepository = new DocentRepository();
+	private final CampusRepository campusRepository = new CampusRepository();
+	
+	public List<Docent> findBestBetaaldeVanEenCampus(long id){
+		Optional<Campus> optionalCampus = campusRepository.read(id);
+		if(optionalCampus.isPresent()){
+			return docentRepository.findBestBetaaldeVanEenCampus(optionalCampus.get());
+		}
+		return Collections.emptyList();
+	}
 	
 	public void bijnameVerwijderen(long id, String[] bijnamen){
 		beginTransaction();

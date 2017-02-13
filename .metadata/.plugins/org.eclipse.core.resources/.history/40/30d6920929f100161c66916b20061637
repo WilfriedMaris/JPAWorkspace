@@ -1,0 +1,7 @@
+package be.vdab.repositories;
+
+public class ArtikelGroepRepository extends AbstractRepository{
+	
+	public List<ArtikelGroep> 
+
+}

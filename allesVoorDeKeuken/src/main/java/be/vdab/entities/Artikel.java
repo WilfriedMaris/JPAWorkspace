@@ -10,12 +10,16 @@ import javax.persistence.CollectionTable;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedAttributeNode;
+import javax.persistence.NamedEntityGraph;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
@@ -25,9 +29,11 @@ import be.vdab.valueobjects.Korting;
 @Inheritance (strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "artikels")
 @DiscriminatorColumn(name = "soort")
+@NamedEntityGraph(name=Artikel.MET_ARTIKELGROEP, 
+	attributeNodes = @NamedAttributeNode("artikelgroep"))
 public abstract class Artikel implements Serializable{
 	private static final long serialVersionUID = 1L;
-	
+	public static final String MET_ARTIKELGROEP = "Artikel.metArtikelGroep";
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -39,14 +45,18 @@ public abstract class Artikel implements Serializable{
 	joinColumns = @JoinColumn(name="artikelid"))
 	@OrderBy("vanafAantal")
 	private Set<Korting> kortingen;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "artikelgroepid")
+	private ArtikelGroep artikelgroep;
 	
 	protected Artikel() {}
 	
-	public Artikel(String naam, BigDecimal aankoopprijs, BigDecimal verkooppprijs){
+	public Artikel(String naam, BigDecimal aankoopprijs, BigDecimal verkooppprijs, ArtikelGroep artikelgroep){
 		setNaam(naam);
 		setAankoopprijs(aankoopprijs);
 		setVerkoopprijs(verkooppprijs);
 		kortingen = new LinkedHashSet<>();
+		setArtikelGroep(artikelgroep);
 	}
 	
 	public static boolean isNaamValid(String naam){
@@ -88,6 +98,34 @@ public abstract class Artikel implements Serializable{
 	
 	public Set<Korting> getKortingen(){
 		return Collections.unmodifiableSet(kortingen);
+	}
+
+	public void setArtikelGroep(ArtikelGroep artikelGroep) {
+		if(this.artikelgroep != null && this.artikelgroep.getArtikels().contains(this)){
+			this.artikelgroep.remove(this);
+		}
+		this.artikelgroep = artikelGroep;
+		if(artikelGroep != null && ! artikelGroep.getArtikels().contains(this)){
+			artikelGroep.addArtikel(this);
+		}
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if(!(obj instanceof Artikel)){
+			return false;
+		}
+		Artikel other = (Artikel) obj;
+		return naam.equalsIgnoreCase(other.naam);
+	}
+	
+	@Override
+	public int hashCode(){
+		return naam.toUpperCase().hashCode();
+	}
+
+	public ArtikelGroep getArtikelgroep() {
+		return artikelgroep;
 	}
 	
 }

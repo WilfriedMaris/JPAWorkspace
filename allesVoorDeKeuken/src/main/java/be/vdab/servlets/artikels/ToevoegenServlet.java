@@ -3,15 +3,20 @@ package be.vdab.servlets.artikels;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import be.vdab.entities.Artikel;
+import be.vdab.entities.ArtikelGroep;
 import be.vdab.entities.FoodArtikel;
 import be.vdab.entities.NonFoodArtikel;
+import be.vdab.services.ArtikelGroepService;
 import be.vdab.services.ArtikelService;
 
 @WebServlet("/artikels/toevoegen.htm")
@@ -20,10 +25,13 @@ public class ToevoegenServlet extends HttpServlet {
 	private final transient ArtikelService artikelService = new ArtikelService();
 	private static final String VIEW = "/WEB-INF/JSP/artikels/toevoegen.jsp";
 	private static final String REDIRECT_URL = "%s/artikels/zoekenopnummer.htm?id=%d";
+	private final transient ArtikelGroepService artikelGroepService = new ArtikelGroepService();
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		List<ArtikelGroep> artikelgroepen = artikelGroepService.findAll();
+		request.setAttribute("artikelgroepen",artikelgroepen);
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 
@@ -33,6 +41,7 @@ public class ToevoegenServlet extends HttpServlet {
 		String naam = request.getParameter("naam");
 		BigDecimal aankoopprijs = null;
 		BigDecimal verkoopprijs = null;
+		String artikelGroepId;
 		Map<String, String> fouten = new HashMap<>();
 
 		if (!Artikel.isNaamValid(naam)) {
@@ -55,6 +64,11 @@ public class ToevoegenServlet extends HttpServlet {
 			}
 		} catch (NumberFormatException ex) {
 			fouten.put("verkoopprijs", "Geef een geldige verkoopprijs in");
+		}
+		
+		artikelGroepId = request.getParameter("artikelgroepen");
+		if(artikelGroepId == null){
+			fouten.put("artikelgroep", "Dit is geen correcte artikelgroep");
 		}
 
 		if (fouten.isEmpty()) {
@@ -91,11 +105,13 @@ public class ToevoegenServlet extends HttpServlet {
 				}
 			}
 			
+			
 			Artikel artikel;
+			ArtikelGroep artikelgroep = artikelGroepService.read(Long.parseLong(artikelGroepId)).get();
 			if(soort.equals("F")){
-					artikel = new FoodArtikel(naam, aankoopprijs, verkoopprijs, houdbaarheid);
+					artikel = new FoodArtikel(naam, aankoopprijs, verkoopprijs, houdbaarheid,artikelgroep);
 			}else{
-					artikel = new NonFoodArtikel(naam, aankoopprijs, verkoopprijs, garantie);
+					artikel = new NonFoodArtikel(naam, aankoopprijs, verkoopprijs, garantie,artikelgroep);
 			}
 			
 			artikelService.createArtikel(artikel);
