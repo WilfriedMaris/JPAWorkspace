@@ -1,0 +1,108 @@
+package be.vdab.services;
+
+import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+import be.vdab.entities.Campus;
+import be.vdab.entities.Docent;
+import be.vdab.exceptions.DocentBestaatAlException;
+import be.vdab.repositories.CampusRepository;
+import be.vdab.repositories.DocentRepository;
+import be.vdab.valueobjects.AantalDocentenPerWedde;
+import be.vdab.valueobjects.VoornaamEnId;
+
+public class DocentService extends AbstractService {
+	private final DocentRepository docentRepository = new DocentRepository();
+	private final CampusRepository campusRepository = new CampusRepository();
+	
+	public List<Docent> findBestBetaaldeVanEenCampus(long id){
+		Optional<Campus> optionalCampus = campusRepository.read(id);
+		if(optionalCampus.isPresent()){
+			return docentRepository.findBestBetaaldeVanEenCampus(optionalCampus.get());
+		}
+		return Collections.emptyList();
+	}
+	
+	public void bijnameVerwijderen(long id, String[] bijnamen){
+		beginTransaction();
+		try{
+			docentRepository.read(id)
+			.ifPresent(docent -> Arrays.stream(bijnamen)
+					.forEach(bijnaam -> docent.removeBijnaam(bijnaam)));
+			commit();
+		}catch(RuntimeException ex){
+			rollback();
+			throw ex;
+		}
+	}
+	
+	public void bijnaamToevoegen(long id, String bijnaam){
+		beginTransaction();
+		try{
+			docentRepository.read(id).ifPresent(docent ->docent.addBijnaam(bijnaam));
+			commit();
+		}catch(RuntimeException ex){
+			rollback();
+			throw ex;
+		}
+	}
+	
+	public List<AantalDocentenPerWedde> findAantalDocentenPerWedde(){
+		return docentRepository.findAantalDocentenPerWedde();
+	}
+	
+	public BigDecimal findMaxWedde(){
+		return docentRepository.findMaxWedde();
+	}
+	
+	public List<Docent> findByWeddeBetween(BigDecimal van, BigDecimal tot, int vanafRij, int aantalRijen){
+		return docentRepository.findByWeddeBetween(van, tot, vanafRij, aantalRijen);
+	}
+
+	public List<VoornaamEnId> findVoornamen(){
+		return docentRepository.findVoornamen();
+	}
+	
+	public Optional<Docent> read(long id){
+			return docentRepository.read(id);
+	}
+	
+	public void create(Docent docent){
+		if(docentRepository.findByRijksRegisterNr(docent.getRijksRegisterNr()).isPresent()){
+			throw new DocentBestaatAlException();
+		}
+		beginTransaction();
+		try{
+			docentRepository.create(docent);
+			commit();
+		}catch(RuntimeException ex){
+			rollback();
+			throw ex;
+		}
+	}
+	
+	public void delete(long id){
+		beginTransaction();
+		try{
+			docentRepository.delete(id);
+			commit();
+		}catch(RuntimeException ex){
+			rollback();
+			throw ex;
+		}
+	}
+	
+	public void opslag(long id, BigDecimal percentage){
+		beginTransaction();
+		try{
+			docentRepository.read(id).ifPresent(docent -> docent.opslag(percentage));
+			commit();
+		}catch(RuntimeException ex){
+			rollback();
+			throw ex;
+		}
+	}
+}

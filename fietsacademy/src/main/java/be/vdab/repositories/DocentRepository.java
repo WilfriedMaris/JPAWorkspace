@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.LockModeType;
 import javax.persistence.NoResultException;
 
 import be.vdab.entities.Campus;
@@ -67,5 +68,10 @@ public class DocentRepository extends AbstractRepository {
 		}catch (NoResultException ex){
 			return Optional.empty();
 		}
+	}
+	
+	public Optional<Docent> readWithLock(long id){
+		return Optional.ofNullable(
+				getEntityManager().find(Docent.class, id, LockModeType.PESSIMISTIC_WRITE));
 	}
 }

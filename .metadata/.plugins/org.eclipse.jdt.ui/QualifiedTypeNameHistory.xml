@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="be.vdab.entities.Docent"/>
-<fullyQualifiedTypeName name="be.vdab.enums.Geslacht"/>
-<fullyQualifiedTypeName name="be.vdab.repositories.ArtikelRepository"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="java.math.RoundingMode"/>
 <fullyQualifiedTypeName name="be.vdab.filters.JPAFilter"/>
 <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="be.vdab.services.ArtikelService"/>
 <fullyQualifiedTypeName name="javax.persistence.NamedEntityGraph"/>
+<fullyQualifiedTypeName name="javax.persistence.LockModeType"/>
+<fullyQualifiedTypeName name="javax.persistence.RollbackException"/>
+<fullyQualifiedTypeName name="javax.persistence.OptimisticLockException"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="java.sql.Timestamp"/>
 </qualifiedTypeNameHistroy>
